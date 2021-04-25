@@ -1,0 +1,74 @@
+html, body {
+    margin: 0;
+    background: rgb(21,115,213);
+    background: linear-gradient(90deg, rgba(21,115,213,1) 9%, rgba(255,0,254,1) 68%);
+    font-family: 'Roboto', sans-serif;
+    height: 100%;
+    width: 100%;
+}
+
+h1 {
+    margin: 20px 0;
+    font-weight: normal;
+}
+
+.authorization_block {
+    display: flex;
+    align-items: center;
+    margin: 20px;
+    width: 650px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    position: relative;
+    left: calc(50% - 650px / 2);
+    top: calc(50% - 274px / 2)
+}
+
+.iconAuthorization {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.iconAuthorization img {
+    width: 150px;
+}
+
+.inputAuthorization {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.inputAuthorization form {
+    display: flex;
+    flex-direction: column;
+}
+
+.inputAuthorization input {
+    background-color: #eaeaea;
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 20px;
+    outline:none;
+}
+
+.loginButton {
+    background-color: #4c9f4c;
+    padding: 10px;
+    margin: 10px;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+.loginButton:hover {
+    cursor: pointer;
+    background-color: #4d8d46;
+}
