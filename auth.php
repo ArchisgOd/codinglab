@@ -8,7 +8,7 @@ require_once 'include/dbCon.php';
 
     $pass = md5($pass."kanatanadana123");
 
-    $mysql = new  mysqli('localhost', 'root', 'register-bd');
+    $mysql = new  mysqli('localhost', 'root', 'Talgat140502','register-bg');
     $result = $mysql->query("SELECT * FROM `users` WHERE 'login' = 'login' AND `pass` = '$pass'");
     $user = $result-> fetch_assoc();
     if(count($user) == 0) {
