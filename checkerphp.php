@@ -1,5 +1,5 @@
 <?php
-    require_once 'include/connetionphp.php'
+    require_once 'include/connetionphp.php';
     $login = filter_var(trim($_POST['login']),
     FILTER_SANITIZE_STRING);
     $name = filter_var(trim($_POST['name']),
