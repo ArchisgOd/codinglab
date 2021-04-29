@@ -1,6 +1,6 @@
 <?php
-    require_once 'include/dbCon.php';
-    $login = filter_var(trim($_POST['login]']),
+    require_once 'include/connetionphp.php'
+    $login = filter_var(trim($_POST['login']),
     FILTER_SANITIZE_STRING);
     $name = filter_var(trim($_POST['name']),
     FILTER_SANITIZE_STRING);
@@ -20,7 +20,7 @@
 
     $pass = md5($pass."kanatanadana123");
 
-    $mysql = new  mysqli('','','');
+    $mysql = new  mysqli('localhost', 'root', '','register-bg');
     $mysql -> query("INSERT INTO `users` (`login`, `pass`, `name`)
     VALUES('$login', '$pass', '$name')");
 
