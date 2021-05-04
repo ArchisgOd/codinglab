@@ -1,5 +1,5 @@
 <?php
-require_once 'include/dbCon.php';
+    require_once 'include/dbCon.php';
     $login = filter_var(trim($_POST['login']),
         FILTER_SANITIZE_STRING);
     $pass = filter_var(trim($_POST['pass']),
@@ -8,7 +8,7 @@ require_once 'include/dbCon.php';
 
     $pass = md5($pass."kanatanadana123");
 
-    $mysql = new  mysqli('localhost', 'root', 'Talgat140502','register-bg');
+    $mysql = new  mysqli('localhost', 'root', '','register-bg');
     $result = $mysql->query("SELECT * FROM `users` WHERE 'login' = 'login' AND `pass` = '$pass'");
     $user = $result-> fetch_assoc();
     if(count($user) == 0) {
@@ -20,4 +20,4 @@ require_once 'include/dbCon.php';
 
     $mysql -> close();
 
-    header('Location: /');
+    header('Location: /login_index.html');
