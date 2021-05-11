@@ -9,7 +9,7 @@
     $pass = md5($pass."kanatanadana123");
 
     $mysql = new  mysqli('localhost', 'root', '','register-bg');
-    $result = $mysql->query("SELECT * FROM `users` WHERE 'login' = 'login' AND `pass` = '$pass'");
+    $result = $mysql->query("SELECT * FROM `users` WHERE `login` = '$login' AND `pass` = '$pass'");
     $user = $result-> fetch_assoc();
     if(count($user) == 0) {
         echo "Такой пользователь не найдет";

@@ -7,7 +7,6 @@
                     $results = mysqli_fetch_assoc($results);
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,23 +24,29 @@
 
     <div align="center">
        <hr>
-            <h3>User Information</h3>
+            <h2>User Information</h2>
        <hr>
         <div class="row">
-            <div class="col-md-6 offset-3">
+            <div class="col-md-6 offset-3" style="font-size: 30px">
                 <?php
-                echo "<br>";
+                 echo "Login: ";
                  echo $results['login'];
                  echo "<br>";
+                 echo "First Name: ";
                  echo $results['name'];
                  echo "<br>";
+                 echo "Last Name: ";
                  echo $results['surname'];
                  echo "<br>";
+                 echo "UIN: ";
                  echo $results['uin'];
                  echo "<br>";
+                 echo "E-mail: ";
                  echo $results['email'];
                  echo "<br>";
+                 echo "Balance: ";
                  echo $results['balance'];
+                 echo " тг";
                 ?>
 
                 </div>
