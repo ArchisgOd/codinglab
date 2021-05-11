@@ -1,5 +1,5 @@
 <?php
-    require_once 'include/connetionphp.php';
+    require_once 'includes/connetionphp.php';
     $login = filter_var(trim($_POST['login']),
     FILTER_SANITIZE_STRING);
 
@@ -18,7 +18,7 @@
     $pass = filter_var(trim($_POST['pass']),
     FILTER_SANITIZE_STRING);
 
-    if(mb_strlen($login)< 5 || mb_strlen($login) > 90){
+    if(mb_strlen($login)< 2 || mb_strlen($login) > 90){
         echo "Недоступная длина логина";
         exit();
     }   else if(mb_strlen($name) < 3 || mb_strlen($name) > 50 ) {
@@ -48,5 +48,5 @@
 
     $mysql -> close();
 
-    header('Location: /');
+    header('Location: userProfile.php');
 ?>
