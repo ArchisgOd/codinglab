@@ -1,7 +1,13 @@
 <?php
     include('../includes/header.php');
     include('../includes/connetionphp.php');
+    $mysqli = mysqli_connect("localhost", "root", "","register-bg");
+    $user = $_COOKIE['user'];
+                    $results = mysqli_query($mysqli, "SELECT * FROM  `users` where `login`='$user' ");
+                    $results = mysqli_fetch_assoc($results);
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,15 +29,22 @@
        <hr>
         <div class="row">
             <div class="col-md-6 offset-3">
+                <?php
+                echo "<br>";
+                 echo $results['login'];
+                 echo "<br>";
+                 echo $results['name'];
+                 echo "<br>";
+                 echo $results['surname'];
+                 echo "<br>";
+                 echo $results['uin'];
+                 echo "<br>";
+                 echo $results['email'];
+                 echo "<br>";
+                 echo $results['balance'];
+                ?>
 
-                <form action="../processes/userProfileUpdateProcess.php"
-                      method="POST"
-                      enctype="multipart/form-data">
-                    <?php
-
-                    ?>
-                
-                </form>
+                </div>
             </div>
             
         </div>

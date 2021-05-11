@@ -1,5 +1,5 @@
 <?php
-    require_once 'includes/connetionphp.php';
+    require_once '../includes/connetionphp.php';
     $login = filter_var(trim($_POST['login']),
         FILTER_SANITIZE_STRING);
     $pass = filter_var(trim($_POST['pass']),
@@ -15,10 +15,9 @@
         echo "Такой пользователь не найдет";
         exit();
     }
-    setcookie('user', $user['name'], time() + 3600, "/");
-
+    setcookie('user', $user['name'], time() + (60*60*24*30),'/' );
 
     $mysql -> close();
 
-    header('Location: pages/userProfile.php');
+    header('Location: ../pages/userProfile.php');
 ?>
