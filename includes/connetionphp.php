@@ -8,7 +8,7 @@ if($mysqli-> connect_error){
     die("Coonect faile:" .$mysqli->connect_error);
     echo "NETNETNET";
 }
-echo "YES WE DID IT";
+
 $mysqli->query("SET NAMES 'utf-8'");
 
 
