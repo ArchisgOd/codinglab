@@ -2,17 +2,18 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
     <title> Admin Page</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
   </head>
   <body>
-
+    <input type="checkbox" id="nav-toggle" name="" value="">
     <div class="sidebar">
       <div class="sidebar-brand">
           <h2>
             <span class="las la-angle-double-up"> </span>
-             TaDaNatBet
+             <span>TaDaNatBet</span>
           </h2>
       </div>
       <div class="sidebar-menu">
@@ -52,7 +53,7 @@
     <div class="main-content">
       <header>
         <h2>
-          <label for="">
+          <label for="nav-toggle">
             <span class="las la-bars"></span>
           </label>
           Dashboard
@@ -103,89 +104,84 @@
           <div class="projects">
             <div class="card">
               <div class="card-header">
-                <h3>Recent Projects</h3>
-                <button type="button" name="button">See all <span class="las la-arrow-right"></span> </button>
+                <h3>Users Information</h3>
+                <button type="button" name="button"> See all <span class="las la-arrow-right"></span> </button>
               </div>
               <div class="card-body">
-                <table width="100%">
-                  <thead>
-                    <tr>
-                      <td>Project Title</td>
-                      <td>Department</td>
-                      <td>Status</td>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>UI/UX Design</td>
-                      <td>UI Team</td>
-                      <td>
-                        <span class="status"></span>
-                        review
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Web Development</td>
-                      <td>Frontend</td>
-                      <td>
-                        <span class="status"></span>
-                        in progress
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Ushop app</td>
-                      <td>Mobile Team</td>
-                      <td>
-                        <span class="status"></span>
-                        pending
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+                <div class="table-responsive">
+                  <table width="100%">
+                    <thead>
+                      <tr>
+                        <td>Username</td>
+                        <td>E-mail</td>
+                        <td>Balance</td>
+                        <td>Password</td>
+                        <td>Status</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>kanat.bkeeep</td>
+                        <td>kanagat@mail.ru</td>
+                        <td>200$</td>
+                        <td>qwerty123</td>
+                        <td>
+                          <span class="status green"></span>
+                          online</td>
+                      </tr>
+                      <tr>
+                        <td>lawlessheaven9</td>
+                        <td>talgard.nur@gmail.com</td>
+                        <td>403$</td>
+                        <td>qwerty123</td>
+                        <td>
+                          <span class="status purple"></span>
+                          offline</td>
+                      </tr>
+                      <tr>
+                        <td>sssilencce</td>
+                        <td>dbaigaliev@yandex.kz</td>
+                        <td>5000$</td>
+                        <td>qwerty123</td>
+                        <td>
+                          <span class="status orange"></span>
+                          afk</td>
+                      </tr>
+                      <tr>
+                        <td>elhanzzz</td>
+                        <td>zhumatayev@inbox.ru</td>
+                        <td>5$</td>
+                        <td>qwerty123</td>
+                        <td>
+                          <span class="status green"></span>
+                          online</td>
+                      </tr>
+                      <tr>
+                        <td>ko1z</td>
+                        <td>donkarbon@mail.ru</td>
+                        <td>300$</td>
+                        <td>qwerty123</td>
+                        <td>
+                          <span class="status purple"></span>
+                          offline</td>
+                      </tr>
+                      <tr>
+                        <td>aitkazZzinov</td>
+                        <td>toomuchbrain@brain.ru</td>
+                        <td>1000$</td>
+                        <td>qwerty123</td>
+                        <td>
+                          <span class="status orange"></span>
+                          afk</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
           </div>
-          <div class="customers">
-            <div class="card">
-              <div class="card-header">
-                <h3>New Customer</h3>
-                <button type="button" name="button">See all <span class="las la-arrow-right"></span> </button>
-              </div>
-              <div class="card-body">
-                <div class="customer">
-                  <div class="">
-                    <img src="img/kana.jps" width="60px" height="60px"alt="">
-                        <div class="">
-                          <h4> Nurdinov Talgart</h4>
-                          <small> The Expert</small>
-                        </div>
-                  </div>
-                  <div class="">
-                    <span class="las la-user-circle"></span>
-                    <span class="las la-comment"></span>
-                    <span class="las la-phone"></span>
-                  </div>
-                </div>
-
-                <div class="customer">
-                  <div class="">
-                    <img src="img/kana.jps" width="60px" height="60px"alt="">
-                        <div class="">
-                          <h4> Berkinbaiyev Kanat</h4>
-                          <small> The Expert 2</small>
-                        </div>
-                  </div>
-                  <div class="">
-                    <span class="las la-user-circle"></span>
-                    <span class="las la-comment"></span>
-                    <span class="las la-phone"></span>
-                  </div>
-                </div>
-              </div>
-          </div>
         </div>
       </main>
-    </div>
-
   </body>
 </html>
+
