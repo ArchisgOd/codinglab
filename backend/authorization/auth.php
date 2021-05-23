@@ -16,4 +16,4 @@ setcookie('user', $user['login'], time() + (60*60*24*30), '/');
 $mysql -> close();
 
 
-header('Location: /untitled/index.php');
+header('Location: /codinglab/index.php');

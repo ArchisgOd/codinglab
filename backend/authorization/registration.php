@@ -27,4 +27,4 @@ $user = $result-> fetch_assoc();
 
 $mysql -> close();
 
-header('Location: /untitled/index.php');
+header('Location: /codinglab/index.php');

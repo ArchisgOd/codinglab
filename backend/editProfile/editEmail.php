@@ -14,4 +14,4 @@ if ($results['pass'] == $pass) {
     $mysql->query("UPDATE `users` SET `email` = '$newEmail' WHERE `login` = '$user'");
 }
 
-header('Location: /untitled/index.php');
+header('Location: /codinglab/index.php');

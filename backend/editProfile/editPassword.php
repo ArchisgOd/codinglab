@@ -14,4 +14,4 @@ if ($results['pass'] == $pass) {
     $mysql->query("UPDATE `users` SET `pass` = '$newPass' WHERE `login` = '$user'");
 }
 
-header('Location: /untitled/editProfile.php');
+header('Location: /codinglab/editProfile.php');
