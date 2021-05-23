@@ -46,7 +46,7 @@ if (isset($_COOKIE['user'])) {
                     echo '<a href="user.php" style="margin: 0 30px">
                     <span style="font-weight: bold">User: </span>' . $_COOKIE['user'] . '
                     <br>
-                    <span style="font-weight: bold">Balance: </span>'.$results['balance'].' тг
+                    <span style="font-weight: bold">Balance: </span>' . $results['balance'] . ' тг
                     </a>';
                 } else {
                     echo '<a href="login.php" class="logButton">Login</a>
@@ -79,9 +79,97 @@ if (isset($_COOKIE['user'])) {
     <section class="matchesBlock">
         <div class="matchesList">
             <h1>Matches</h1>
-            <div class="match">
-                <img src="">
-            </div>
+            <a href="#" class="matchLink">
+                <table class="match">
+                    <thead>
+                    <tr>
+                        <th rowspan="2"><img class="matchesCategoryImage" src="image/matchesCategoryImg/football.svg">
+                        </th>
+                        <th>team name 1</th>
+                        <th>coefficient</th>
+                        <th>draw</th>
+                        <th>coefficient</th>
+                        <th>team name 2</th>
+                    </tr>
+                    <tr>
+                        <td>team1</td>
+                        <td>1.0</td>
+                        <td>1.0</td>
+                        <td>1.0</td>
+                        <td>team2</td>
+                    </tr>
+                    </thead>
+                </table>
+            </a>
+
+            <a href="#" class="matchLink">
+                <table class="match">
+                    <thead>
+                    <tr>
+                        <th rowspan="2"><img class="matchesCategoryImage" src="image/matchesCategoryImg/football.svg">
+                        </th>
+                        <th>team name 1</th>
+                        <th>coefficient</th>
+                        <th>draw</th>
+                        <th>coefficient</th>
+                        <th>team name 2</th>
+                    </tr>
+                    <tr>
+                        <td>team1</td>
+                        <td>1.0</td>
+                        <td>1.0</td>
+                        <td>1.0</td>
+                        <td>team2</td>
+                    </tr>
+                    </thead>
+                </table>
+            </a>
+
+            <a href="#" class="matchLink">
+                <table class="match">
+                    <thead>
+                    <tr>
+                        <th rowspan="2"><img class="matchesCategoryImage" src="image/matchesCategoryImg/football.svg">
+                        </th>
+                        <th>team name 1</th>
+                        <th>coefficient</th>
+                        <th>draw</th>
+                        <th>coefficient</th>
+                        <th>team name 2</th>
+                    </tr>
+                    <tr>
+                        <td>team1</td>
+                        <td>1.0</td>
+                        <td>1.0</td>
+                        <td>1.0</td>
+                        <td>team2</td>
+                    </tr>
+                    </thead>
+                </table>
+            </a>
+
+            <a href="#" class="matchLink">
+                <table class="match">
+                    <thead>
+                    <tr>
+                        <th rowspan="2"><img class="matchesCategoryImage" src="image/matchesCategoryImg/football.svg">
+                        </th>
+                        <th>team name 1</th>
+                        <th>coefficient</th>
+                        <th>draw</th>
+                        <th>coefficient</th>
+                        <th>team name 2</th>
+                    </tr>
+                    <tr>
+                        <td>team1</td>
+                        <td>1.0</td>
+                        <td>1.0</td>
+                        <td>1.0</td>
+                        <td>team2</td>
+                    </tr>
+                    </thead>
+                </table>
+            </a>
         </div>
     </section>
 </section>
