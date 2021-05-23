@@ -59,7 +59,30 @@ if (isset($_COOKIE['user'])) {
     </section>
 
     <section>
+        <div class="banner">
+            <div class="bannerSide">
+                <h1>Best Bookmaker</h1>
+                <p>The best coefficients are only with us and nowhere else</p>
+            </div>
+            <div class="bannerSide">
+                <h1 class="logoContent">
+                    TaDaNatBet
+                    <div class="logo">
+                        <div class="redSquare s1"></div>
+                        <div class="redSquare s2"></div>
+                    </div>
+                </h1>
+            </div>
+        </div>
+    </section>
 
+    <section class="matchesBlock">
+        <div class="matchesList">
+            <h1>Matches</h1>
+            <div class="match">
+                <img src="">
+            </div>
+        </div>
     </section>
 </section>
 <script src="js/jquery-3.5.1.js"></script>
