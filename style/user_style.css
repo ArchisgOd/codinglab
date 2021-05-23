@@ -1,61 +1,67 @@
-html, body {
-    margin: 0;
-    background-color: black;
+.logoutButton {
+    background-color: #ED2839;
+    border-radius: 20px;
+    padding: 10px 30px;
     color: white;
-    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    margin: 0 30px;
+    transition: background-color 0.3s;
 }
 
-br {
-    background-color: white;
+.logoutButton:hover {
+    background-color: #d42868;
+    cursor: pointer;
 }
 
-section {
-    display: flex;
-    justify-content: center;
-}
-
-nav, .userInfo, .matchStory {
-    width: 1140px;
-    padding: 10px 0;
-}
-
-.logo {
-    width: 150px;
-}
-
-.userInfoBlock {
+.userInformation {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.userInfo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+h1 {
+    text-align: center;
+    width: 40%;
+    font-size: 45px;
+    margin: 90px 0 30px 0;
+    -webkit-box-shadow: 0px 5px 11px -5px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 0px 5px 11px -5px rgba(34, 60, 80, 0.2);
+    box-shadow: 0px 5px 11px -5px rgba(34, 60, 80, 0.2);
 }
 
-.userName {
-    font-size: 50px;
+p {
+    margin: 15px 0 15px 60px;
+    font-size: 20px;
+    width: calc(100% - 60px);
 }
 
-.userRealInfo {
-    font-size: 30px;
+.editInformation {
+    display: inline-block;
+    border-radius: 20px;
+    background-color: #323030;
+    margin-top: 20px;
+    padding: 12px 40px;
+    color: white;
+    transition: background-color 0.3s;
 }
 
-.line {
-    width: 100%;
-    height: 1px;
-    background-color: #dc3a3a;
+.editInformation:hover {
+    background-color: #212020;
 }
 
-.matchHistory p {
-    font-size: 40px;
+#infoBox {
+    width: 40%;
 }
 
-.matchBlock {
-    width: 100%;
-    height: 200px;
-    border: 1px solid #dc3a3a;
+.profileInfo {
+    display: inline-block;
+    padding: 5px 20px;
+    border-radius: 20px;
+    background-color: #524d4d;
+    color: white;
+    width: calc(100% - 75px);
+    margin-top: 5px;
 }
-

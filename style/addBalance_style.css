@@ -1,0 +1,35 @@
+.addBalanceBlock {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input {
+    padding: 5px 15px;
+    width: 400px;
+    height: 30px;
+    border-radius: 20px;
+    outline: none;
+    border: 1px solid #524b4b;
+    text-align: center;
+}
+
+button {
+    margin-top: 40px;
+    width: 200px;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+    color: white;
+    background-color: #ED2839;
+}

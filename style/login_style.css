@@ -1,75 +1,37 @@
-html, body {
-    margin: 0;
-    background: rgb(21,115,213);
-    background: linear-gradient(90deg, rgba(21,115,213,1) 9%, rgba(255,0,254,1) 68%);
-    font-family: 'Roboto', sans-serif;
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
+form {
+    display: flex;
+    flex-direction: column;
+    margin-left: 40px;
+    align-items: center;
 }
 
 h1 {
-    margin: 20px 0;
-    font-weight: normal;
+    font-size: 30px;
+    margin-left: 40px;
+    text-align: center;
 }
 
-.authorization_block {
-    display: flex;
-    align-items: center;
-    margin: 20px;
-    width: 650px;
-    background-color: white;
-    padding: 20px;
+input {
     border-radius: 20px;
-    position: relative;
-    left: calc(50% - 650px / 2);
-    top: calc(50% - 274px / 2)
+    outline: none;
+    border: 1px solid black;
+    padding: 10px 15px;
+    margin: 10px 0;
+    width: 400px;
 }
 
-.iconAuthorization {
-    width: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.iconAuthorization img {
-    width: 150px;
-}
-
-.inputAuthorization {
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-}
-
-.inputAuthorization form {
-    display: flex;
-    flex-direction: column;
-}
-
-.inputAuthorization input {
-    background-color: #eaeaea;
-    padding: 10px 20px;
-    margin: 10px;
+button {
+    width: 30%;
     border: none;
+    padding: 10px 15px;
     border-radius: 20px;
-    outline:none;
-}
-
-.loginButton {
-    background-color: #4c9f4c;
-    padding: 10px;
-    margin: 10px;
-    border: none;
-    border-radius: 20px;
+    background-color: #ED2839;
     color: white;
-    transition: background-color 0.3s;
+    margin: 10px 0;
 }
 
-.loginButton:hover {
-    cursor: pointer;
-    background-color: #4d8d46;
+p {
+    color: red;
+    display: none;
+    margin: 0;
 }
