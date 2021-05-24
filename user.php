@@ -35,7 +35,7 @@ $results = mysqli_fetch_assoc($results);
                 <form method="post" action="backend/authorization/logout.php">
                     <?php
                     if ($user == 'admin') {
-                        echo '<a href="#" class="logoutButton">Add match</a>';
+                        echo '<a href="addMatch.php" class="logoutButton">Add match</a>';
                     }
                     ?>
                     <a href="addBalance.php" class="logoutButton">Top up balance +</a>
