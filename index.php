@@ -4,7 +4,7 @@ if (isset($_COOKIE['user'])) {
     $user = $_COOKIE['user'];
     $results = mysqli_query($mysqli, "SELECT * FROM  `users` where `login`='$user' ");
     $results = mysqli_fetch_assoc($results);
-    $result = $mysqli->query("SELECT * FROM matches");
+    $result = $mysqli->query("SELECT * FROM matches ORDER BY ID DESC");
 }
 ?>
 
@@ -90,7 +90,7 @@ if (isset($_COOKIE['user'])) {
                 <table class="match">
                     <thead>
                     <tr>
-                        <th rowspan="2"><img class="matchesCategoryImage" src="image/matchesCategoryImg/football.svg">
+                        <th rowspan="2"><img class="matchesCategoryImage" src="image/matchesCategoryImg/'.$row["category"].'.svg">
                         </th>
                         <th>team name 1</th>
                         <th>coefficient</th>
