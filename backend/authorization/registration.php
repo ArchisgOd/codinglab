@@ -25,6 +25,8 @@ $mysql -> query("INSERT INTO `users` (`login`, `name` , `surname` , `email`, `ui
 $result = $mysql->query("SELECT * FROM `users` WHERE `login` = '$login' AND `pass` = '$pass'");
 $user = $result-> fetch_assoc();
 
+setcookie('user', $user['login'], time() + (60*60*24*30), '/');
+
 $mysql -> close();
 
 header('Location: /codinglab/index.php');

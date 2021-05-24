@@ -1,11 +1,12 @@
 <?php
+$mysqli = mysqli_connect("localhost", "root", "", "codingLab");
 if (isset($_COOKIE['user'])) {
-    $mysqli = mysqli_connect("localhost", "root", "", "codingLab");
     $user = $_COOKIE['user'];
     $results = mysqli_query($mysqli, "SELECT * FROM  `users` where `login`='$user' ");
     $results = mysqli_fetch_assoc($results);
-    $result = $mysqli->query("SELECT * FROM matches ORDER BY ID DESC");
 }
+$result = $mysqli->query("SELECT * FROM matches ORDER BY ID DESC");
+
 ?>
 
 <!DOCTYPE html>
@@ -83,9 +84,7 @@ if (isset($_COOKIE['user'])) {
 
             <?php
             if ($result->num_rows > 0) {
-                // output data of each row
                 while ($row = $result->fetch_assoc()) {
-//                    echo "id: " . $row["category"]. " - Name: " . $row["teamName1"]. " " . $row["lastname"]. "<br>";
                     echo '<a href="#" class="matchLink">
                 <table class="match">
                     <thead>
