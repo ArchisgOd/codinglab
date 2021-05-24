@@ -4,6 +4,7 @@ if (isset($_COOKIE['user'])) {
     $user = $_COOKIE['user'];
     $results = mysqli_query($mysqli, "SELECT * FROM  `users` where `login`='$user' ");
     $results = mysqli_fetch_assoc($results);
+    $result = $mysqli->query("SELECT * FROM matches");
 }
 ?>
 
@@ -79,30 +80,13 @@ if (isset($_COOKIE['user'])) {
     <section class="matchesBlock">
         <div class="matchesList">
             <h1>Matches</h1>
-            <a href="#" class="matchLink">
-                <table class="match">
-                    <thead>
-                    <tr>
-                        <th rowspan="2"><img class="matchesCategoryImage" src="image/matchesCategoryImg/football.svg">
-                        </th>
-                        <th>team name 1</th>
-                        <th>coefficient</th>
-                        <th>draw</th>
-                        <th>coefficient</th>
-                        <th>team name 2</th>
-                    </tr>
-                    <tr>
-                        <td>team1</td>
-                        <td>1.0</td>
-                        <td>1.0</td>
-                        <td>1.0</td>
-                        <td>team2</td>
-                    </tr>
-                    </thead>
-                </table>
-            </a>
 
-            <a href="#" class="matchLink">
+            <?php
+            if ($result->num_rows > 0) {
+                // output data of each row
+                while ($row = $result->fetch_assoc()) {
+//                    echo "id: " . $row["category"]. " - Name: " . $row["teamName1"]. " " . $row["lastname"]. "<br>";
+                    echo '<a href="#" class="matchLink">
                 <table class="match">
                     <thead>
                     <tr>
@@ -115,61 +99,20 @@ if (isset($_COOKIE['user'])) {
                         <th>team name 2</th>
                     </tr>
                     <tr>
-                        <td>team1</td>
-                        <td>1.0</td>
-                        <td>1.0</td>
-                        <td>1.0</td>
-                        <td>team2</td>
+                        <td>'.$row["teamName1"].'</td>
+                        <td>'.$row["teamCoefficient1"].'</td>
+                        <td>'.$row["draw"].'</td>
+                        <td>'.$row["teamCoefficient2"].'</td>
+                        <td>'.$row["teamName2"].'</td>
                     </tr>
                     </thead>
                 </table>
-            </a>
-
-            <a href="#" class="matchLink">
-                <table class="match">
-                    <thead>
-                    <tr>
-                        <th rowspan="2"><img class="matchesCategoryImage" src="image/matchesCategoryImg/football.svg">
-                        </th>
-                        <th>team name 1</th>
-                        <th>coefficient</th>
-                        <th>draw</th>
-                        <th>coefficient</th>
-                        <th>team name 2</th>
-                    </tr>
-                    <tr>
-                        <td>team1</td>
-                        <td>1.0</td>
-                        <td>1.0</td>
-                        <td>1.0</td>
-                        <td>team2</td>
-                    </tr>
-                    </thead>
-                </table>
-            </a>
-
-            <a href="#" class="matchLink">
-                <table class="match">
-                    <thead>
-                    <tr>
-                        <th rowspan="2"><img class="matchesCategoryImage" src="image/matchesCategoryImg/football.svg">
-                        </th>
-                        <th>team name 1</th>
-                        <th>coefficient</th>
-                        <th>draw</th>
-                        <th>coefficient</th>
-                        <th>team name 2</th>
-                    </tr>
-                    <tr>
-                        <td>team1</td>
-                        <td>1.0</td>
-                        <td>1.0</td>
-                        <td>1.0</td>
-                        <td>team2</td>
-                    </tr>
-                    </thead>
-                </table>
-            </a>
+            </a>';
+                }
+            } else {
+                echo "<h1>No Match For Today</h1>";
+            }
+            ?>
         </div>
     </section>
 </section>
