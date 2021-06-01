@@ -4,6 +4,11 @@ if (isset($_COOKIE['user'])) {
     $user = $_COOKIE['user'];
     $results = mysqli_query($mysqli, "SELECT * FROM  `users` where `login`='$user' ");
     $results = mysqli_fetch_assoc($results);
+    if (isset($_GET['id'])) {
+        $id = $_GET['id'];
+        $matchResult = $mysqli->query("SELECT * FROM matches WHERE ID = '$id'");
+        $matchResult = mysqli_fetch_assoc($matchResult);
+    }
 }
 $result = $mysqli->query("SELECT * FROM matches ORDER BY ID DESC");
 
@@ -64,27 +69,27 @@ $result = $mysqli->query("SELECT * FROM matches ORDER BY ID DESC");
     <section>
         <div class="matchBanner">
             <div class="inBanner">
-                <h1 class="tournamentName">ESL ONE COLOGNE</h1>
+                <h1 class="tournamentName"><?php echo $matchResult['tournament']?></h1>
             </div>
         </div>
     </section>
 
     <section class="matchInfo">
         <h1 class="teams">
-            Qazaqstralis - Navi
+            <?php echo $matchResult['teamName1']?> - <?php echo $matchResult['teamName2']?>
         </h1>
 
         <table class="match">
             <thead>
             <tr>
-                <th>coefficient to Qazaqstralis win</th>
+                <th>coefficient to <?php echo $matchResult['teamName1']?> win</th>
                 <th>draw</th>
-                <th>coefficient to Navi win</th>
+                <th>coefficient to <?php echo $matchResult['teamName2']?> win</th>
             </tr>
             <tr>
-                <td>3.4</td>
-                <td>11.5</td>
-                <td>1.01</td>
+                <td><?php echo $matchResult['teamCoefficient1']?></td>
+                <td><?php echo $matchResult['draw']?></td>
+                <td><?php echo $matchResult['teamCoefficient2']?></td>
             </tr>
             </thead>
         </table>
@@ -92,12 +97,12 @@ $result = $mysqli->query("SELECT * FROM matches ORDER BY ID DESC");
 
     <section class="summitBet">
         <form>
-            <input type="text" placeholder="bet on winning Qazaqstralis">
+            <input type="text" placeholder="bet on winning <?php echo $matchResult['teamName1']?>">
             <button type="submit">BET</button>
         </form>
 
         <form>
-            <input type="text" placeholder="bet on winning Navi">
+            <input type="text" placeholder="bet on winning <?php echo $matchResult['teamName2']?>">
             <button type="submit">BET</button>
         </form>
 

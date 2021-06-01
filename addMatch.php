@@ -52,6 +52,10 @@ if ($user == 'admin') {
             <label>
                 <input type="text" placeholder="White second team" name="team2" id="team2">
             </label>
+            
+            <label>
+                <input type="text" placeholder="White tournament name" name="tournament" id="tournament">
+            </label>
 
             <button class="loginButton" type="submit">Add match</button>
         </form>
