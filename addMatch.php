@@ -1,4 +1,12 @@
-<!DOCTYPE html>
+
+<?php
+$mysqli = mysqli_connect("localhost", "root", "", "codingLab");
+$user = $_COOKIE['user'];
+$results = mysqli_query($mysqli, "SELECT * FROM  `users` where `login`='$user' ");
+$results = mysqli_fetch_assoc($results);
+
+if ($user == 'admin') {
+    echo '<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -54,4 +62,7 @@
 <script src="js/script.js"></script>
 </body>
 </html>
-
+';
+} else {
+    echo "OOPS WHAT ARE U DOING HERE? GO AWAY!!!!";
+}

@@ -6,6 +6,7 @@ if (isset($_COOKIE['user'])) {
     $results = mysqli_fetch_assoc($results);
 }
 $result = $mysqli->query("SELECT * FROM matches ORDER BY ID DESC");
+
 ?>
 
 <!DOCTYPE html>
@@ -14,6 +15,7 @@ $result = $mysqli->query("SELECT * FROM matches ORDER BY ID DESC");
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/match_style.css">
 </head>
 <body>
 <section id="menu">
@@ -60,58 +62,49 @@ $result = $mysqli->query("SELECT * FROM matches ORDER BY ID DESC");
     </section>
 
     <section>
-        <div class="banner">
-            <div class="bannerSide">
-                <h1>Best Bookmaker</h1>
-                <p>The best coefficients are only with us and nowhere else</p>
-            </div>
-            <div class="bannerSide">
-                <h1 class="logoContent">
-                    TaDaNatBet
-                    <div class="logo">
-                        <div class="redSquare s1"></div>
-                        <div class="redSquare s2"></div>
-                    </div>
-                </h1>
+        <div class="matchBanner">
+            <div class="inBanner">
+                <h1 class="tournamentName">ESL ONE COLOGNE</h1>
             </div>
         </div>
     </section>
 
-    <section class="matchesBlock">
-        <div class="matchesList">
-            <h1>Matches</h1>
+    <section class="matchInfo">
+        <h1 class="teams">
+            Qazaqstralis - Navi
+        </h1>
 
-            <?php
-            if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-                    echo '<a href="match.php?id='.$row["ID"].'" class="matchLink">
-                <table class="match">
-                    <thead>
-                    <tr>
-                        <th rowspan="2"><img class="matchesCategoryImage" src="image/matchesCategoryImg/'.$row["category"].'.svg">
-                        </th>
-                        <th>team name 1</th>
-                        <th>coefficient</th>
-                        <th>draw</th>
-                        <th>coefficient</th>
-                        <th>team name 2</th>
-                    </tr>
-                    <tr>
-                        <td>'.$row["teamName1"].'</td>
-                        <td>'.$row["teamCoefficient1"].'</td>
-                        <td>'.$row["draw"].'</td>
-                        <td>'.$row["teamCoefficient2"].'</td>
-                        <td>'.$row["teamName2"].'</td>
-                    </tr>
-                    </thead>
-                </table>
-            </a>';
-                }
-            } else {
-                echo "<h1>No Match For Today</h1>";
-            }
-            ?>
-        </div>
+        <table class="match">
+            <thead>
+            <tr>
+                <th>coefficient to Qazaqstralis win</th>
+                <th>draw</th>
+                <th>coefficient to Navi win</th>
+            </tr>
+            <tr>
+                <td>3.4</td>
+                <td>11.5</td>
+                <td>1.01</td>
+            </tr>
+            </thead>
+        </table>
+    </section>
+
+    <section class="summitBet">
+        <form>
+            <input type="text" placeholder="bet on winning Qazaqstralis">
+            <button type="submit">BET</button>
+        </form>
+
+        <form>
+            <input type="text" placeholder="bet on winning Navi">
+            <button type="submit">BET</button>
+        </form>
+
+        <form>
+            <input type="text" placeholder="bet on draw">
+            <button type="submit">BET</button>
+        </form>
     </section>
 </section>
 <script src="js/jquery-3.5.1.js"></script>

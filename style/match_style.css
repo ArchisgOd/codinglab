@@ -1,0 +1,71 @@
+.matchBanner{
+    backdrop-filter: brightness(50%);
+    width: 100%;
+    height: 600px;
+    background-image: url("/codinglab/image/banner/eslbanner.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+.inBanner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: brightness(0.5);
+}
+
+.tournamentName {
+    font-size: 60px;
+}
+
+.matchInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.teams {
+    font-size: 40px;
+    margin: 40px 30px;
+}
+
+.match {
+    margin-bottom: 70px;
+}
+
+.summitBet {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 70px;
+}
+
+input {
+    border-radius: 20px;
+    outline: none;
+    border: 1px solid black;
+    padding: 10px 15px;
+    margin: 10px 0;
+    width: 400px;
+}
+
+button {
+    width: 200px;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 20px;
+    background-color: #ED2839;
+    color: white;
+    margin: 10px 0;
+}
+
+button:hover {
+    background-color: #8d1e2d;
+    cursor: pointer;
+}
+
