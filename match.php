@@ -96,18 +96,18 @@ $result = $mysqli->query("SELECT * FROM matches ORDER BY ID DESC");
     </section>
 
     <section class="summitBet">
-        <form>
-            <input type="text" placeholder="bet on winning <?php echo $matchResult['teamName1']?>">
+        <form method="post" action="backend/bet/addBetToTeam1.php?id=<?php echo $id;?>">
+            <input type="text" placeholder="bet on winning <?php echo $matchResult['teamName1']?>" name="betTeam1" id="betTeam1">
             <button type="submit">BET</button>
         </form>
 
-        <form>
-            <input type="text" placeholder="bet on winning <?php echo $matchResult['teamName2']?>">
+        <form method="post" action="backend/bet/addBetToTeam2.php?id=<?php echo $id;?>">
+            <input type="text" placeholder="bet on winning <?php echo $matchResult['teamName2']?>" name="betTeam2" id="betTeam2">
             <button type="submit">BET</button>
         </form>
 
-        <form>
-            <input type="text" placeholder="bet on draw">
+        <form method="post" action="backend/bet/addBetToDraw.php?id=<?php echo $id;?>">
+            <input type="text" placeholder="bet on draw" name="betDraw" id="betDraw">
             <button type="submit">BET</button>
         </form>
     </section>
