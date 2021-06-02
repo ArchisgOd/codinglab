@@ -41,14 +41,6 @@ $result = $mysqli->query("SELECT * FROM bettomatchesstory WHERE login = '$user' 
             </div>
 
             <div class="rightSide">
-                <form>
-                    <label>
-                        <img src="https://img.icons8.com/ios-filled/24/000000/search--v1.png" alt="searchIcon"
-                             class="searchIcon">
-                        <input type="search" class="search" placeholder="Search here">
-                    </label>
-                </form>
-
                 <?php
                 if (isset($_COOKIE['user'])) {
                     echo '<a href="user.php" style="margin: 0 30px">
