@@ -131,6 +131,7 @@ $result = $mysqli->query("SELECT * FROM bettomatchesstory WHERE login = '$user' 
                 echo "<h1 style='font-size: 35px'>You Didn't Bet</h1>";
             }
             ?>
+
         </div>
     </section>
 </section>

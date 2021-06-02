@@ -11,12 +11,22 @@ if (isset($_GET['id'])) {
     $matchResult = mysqli_fetch_assoc($matchResult);
 }
 
-$mysqli->query("UPDATE `users` SET `balance` = balance - '$betTeam2' WHERE `login` = '$user'");
-$mysqli->query("INSERT INTO `bettomatchesstory` (`ID`, `login`, `matchID`, `paidMoney`, `team`, `tournament`) VALUES (NULL, '$user', '" . $matchResult['ID'] . "', '$betTeam2', '" . $matchResult['teamName2'] . "', '" . $matchResult['tournament'] . "')");
-$mysqli->query("UPDATE `matches` SET `moneyTeam2` = moneyTeam2 + '$betTeam2' WHERE `ID` = '" . $matchResult['ID'] . "'");
+$resultUser = mysqli_query($mysqli, "SELECT * FROM  `users` where `login`='$user' ");
+$resultUser = mysqli_fetch_assoc($resultUser);
 
-$mysqli->query("UPDATE `matches` SET `teamCoefficient1` = 1 + (moneyTeam2 / moneyTeam1) WHERE `ID` = '".$matchResult['ID']."'");
-$mysqli->query("UPDATE `matches` SET `teamCoefficient2` = 1 + (moneyTeam1 / moneyTeam2) WHERE `ID` = '".$matchResult['ID']."'");
-$mysqli->query("UPDATE `matches` SET `draw` = 1 + teamCoefficient1 + teamCoefficient2 WHERE `ID` = '".$matchResult['ID']."'");
+if ($betTeam2 > $resultUser['balance'] || $betTeam2 < '0') {
+    echo '<script> 
+             alert("INSUFFICIENT FUNDS");
+             window.location.href="/codinglab/index.php";
+          </script>';
+} else {
+    $mysqli->query("UPDATE `users` SET `balance` = balance - '$betTeam2' WHERE `login` = '$user'");
+    $mysqli->query("INSERT INTO `bettomatchesstory` (`ID`, `login`, `matchID`, `paidMoney`, `team`, `tournament`) VALUES (NULL, '$user', '" . $matchResult['ID'] . "', '$betTeam2', '" . $matchResult['teamName2'] . "', '" . $matchResult['tournament'] . "')");
+    $mysqli->query("UPDATE `matches` SET `moneyTeam2` = moneyTeam2 + '$betTeam2' WHERE `ID` = '" . $matchResult['ID'] . "'");
 
-header('Location: /codinglab/index.php');
+    $mysqli->query("UPDATE `matches` SET `teamCoefficient1` = 1 + (moneyTeam2 / moneyTeam1) WHERE `ID` = '".$matchResult['ID']."'");
+    $mysqli->query("UPDATE `matches` SET `teamCoefficient2` = 1 + (moneyTeam1 / moneyTeam2) WHERE `ID` = '".$matchResult['ID']."'");
+    $mysqli->query("UPDATE `matches` SET `draw` = 1 + teamCoefficient1 + teamCoefficient2 WHERE `ID` = '".$matchResult['ID']."'");
+
+    header('Location: /codinglab/index.php');
+}
