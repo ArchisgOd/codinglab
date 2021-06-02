@@ -69,3 +69,11 @@ button:hover {
     cursor: pointer;
 }
 
+.match {
+    margin-bottom: 40px;
+}
+
+th {
+    width: 260px;
+}
+

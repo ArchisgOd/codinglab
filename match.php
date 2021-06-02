@@ -10,7 +10,7 @@ if (isset($_COOKIE['user'])) {
         $matchResult = mysqli_fetch_assoc($matchResult);
     }
 }
-$result = $mysqli->query("SELECT * FROM matches ORDER BY ID DESC");
+$result = $mysqli->query("SELECT * FROM bettomatchesstory WHERE login = '$user' AND matchID = '$id' ORDER BY ID DESC");
 
 ?>
 
@@ -69,47 +69,77 @@ $result = $mysqli->query("SELECT * FROM matches ORDER BY ID DESC");
     <section>
         <div class="matchBanner">
             <div class="inBanner">
-                <h1 class="tournamentName"><?php echo $matchResult['tournament']?></h1>
+                <h1 class="tournamentName"><?php echo $matchResult['tournament'] ?></h1>
             </div>
         </div>
     </section>
 
     <section class="matchInfo">
         <h1 class="teams">
-            <?php echo $matchResult['teamName1']?> - <?php echo $matchResult['teamName2']?>
+            <?php echo $matchResult['teamName1'] ?> - <?php echo $matchResult['teamName2'] ?>
         </h1>
 
         <table class="match">
             <thead>
             <tr>
-                <th>coefficient to <?php echo $matchResult['teamName1']?> win</th>
+                <th>coefficient to <?php echo $matchResult['teamName1'] ?> win</th>
                 <th>draw</th>
-                <th>coefficient to <?php echo $matchResult['teamName2']?> win</th>
+                <th>coefficient to <?php echo $matchResult['teamName2'] ?> win</th>
             </tr>
             <tr>
-                <td><?php echo $matchResult['teamCoefficient1']?></td>
-                <td><?php echo $matchResult['draw']?></td>
-                <td><?php echo $matchResult['teamCoefficient2']?></td>
+                <td><?php echo $matchResult['teamCoefficient1'] ?></td>
+                <td><?php echo $matchResult['draw'] ?></td>
+                <td><?php echo $matchResult['teamCoefficient2'] ?></td>
             </tr>
             </thead>
         </table>
     </section>
 
     <section class="summitBet">
-        <form method="post" action="backend/bet/addBetToTeam1.php?id=<?php echo $id;?>">
-            <input type="text" placeholder="bet on winning <?php echo $matchResult['teamName1']?>" name="betTeam1" id="betTeam1">
+        <form method="post" action="backend/bet/addBetToTeam1.php?id=<?php echo $id; ?>">
+            <input type="text" placeholder="bet on winning <?php echo $matchResult['teamName1'] ?>" name="betTeam1"
+                   id="betTeam1">
             <button type="submit">BET</button>
         </form>
 
-        <form method="post" action="backend/bet/addBetToTeam2.php?id=<?php echo $id;?>">
-            <input type="text" placeholder="bet on winning <?php echo $matchResult['teamName2']?>" name="betTeam2" id="betTeam2">
+        <form method="post" action="backend/bet/addBetToTeam2.php?id=<?php echo $id; ?>">
+            <input type="text" placeholder="bet on winning <?php echo $matchResult['teamName2'] ?>" name="betTeam2"
+                   id="betTeam2">
             <button type="submit">BET</button>
         </form>
 
-        <form method="post" action="backend/bet/addBetToDraw.php?id=<?php echo $id;?>">
+        <form method="post" action="backend/bet/addBetToDraw.php?id=<?php echo $id; ?>">
             <input type="text" placeholder="bet on draw" name="betDraw" id="betDraw">
             <button type="submit">BET</button>
         </form>
+    </section>
+
+    <section class="matchesBlock">
+        <div class="matchesList">
+            <h1>Your bet on the match</h1>
+
+            <?php
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo '
+                    <table class="match">
+                    <thead>
+                    <tr>
+                        <th>Bet on</th>
+                        <th>Money</th>
+                    </tr>
+                    <tr>
+                        <td>' . $row["team"] . '</td>
+                        <td>' . $row["paidMoney"] . '</td>
+                    </tr>
+                    </thead>
+                    </table>';
+                }
+            } else {
+                echo "<h1 style='font-size: 35px'>You Didn't Bet</h1>";
+            }
+            ?>
+        </div>
     </section>
 </section>
 <script src="js/jquery-3.5.1.js"></script>

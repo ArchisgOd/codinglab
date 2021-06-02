@@ -108,7 +108,7 @@ $result = $mysqli->query("SELECT * FROM matches ORDER BY ID DESC");
             </a>';
                 }
             } else {
-                echo "<h1>No Match For Today</h1>";
+                echo "<h1 style='font-size: 35px'>No Match For Today</h1>";
             }
             ?>
         </div>

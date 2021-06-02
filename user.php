@@ -3,6 +3,7 @@ $mysqli = mysqli_connect("localhost", "root", "", "codingLab");
 $user = $_COOKIE['user'];
 $results = mysqli_query($mysqli, "SELECT * FROM  `users` where `login`='$user' ");
 $results = mysqli_fetch_assoc($results);
+$result = $mysqli->query("SELECT * FROM bettomatchesstory WHERE login = '$user' ORDER BY ID DESC");
 ?>
 
 <!DOCTYPE html>
@@ -76,6 +77,36 @@ $results = mysqli_fetch_assoc($results);
         </div>
 
         <a href="editProfile.php" class="editInformation">Edit information</a>
+    </section>
+
+    <section class="matchesBlock">
+        <div class="matchesList">
+            <h1>Your bet on the match</h1>
+
+            <?php
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo '
+                    <table class="match">
+                    <thead>
+                    <tr>
+                        <th>Tournament</th>
+                        <th>Bet on</th>
+                        <th>Money</th>
+                    </tr>
+                    <tr>
+                        <td>' . $row["tournament"] . '</td>
+                        <td>' . $row["team"] . '</td>
+                        <td>' . $row["paidMoney"] . '</td>
+                    </tr>
+                    </thead>
+                    </table>';
+                }
+            } else {
+                echo "<h1 style='font-size: 35px'>You Didn't Bet</h1>";
+            }
+            ?>
+        </div>
     </section>
 </section>
 

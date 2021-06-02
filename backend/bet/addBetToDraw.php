@@ -12,7 +12,7 @@ if (isset($_GET['id'])) {
 }
 
 $mysqli->query("UPDATE `users` SET `balance` = balance - '$betDraw' WHERE `login` = '$user'");
-$mysqli->query("INSERT INTO `bettomatchesstory` (`ID`, `login`, `matchID`, `paidMoney`, `team`) VALUES (NULL, '$user', '" . $matchResult['ID'] . "', '$betDraw', 'draw')");
+$mysqli->query("INSERT INTO `bettomatchesstory` (`ID`, `login`, `matchID`, `paidMoney`, `team`, `tournament`) VALUES (NULL, '$user', '" . $matchResult['ID'] . "', '$betDraw', 'draw', '" . $matchResult['tournament'] . "') ");
 $mysqli->query("UPDATE `matches` SET `moneyDraw` = moneyDraw + '$betDraw' WHERE `ID` = '" . $matchResult['ID'] . "'");
 
 header('Location: /codinglab/index.php');
