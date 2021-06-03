@@ -77,3 +77,18 @@ th {
     width: 260px;
 }
 
+.adminBlock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.adminBlock h1 {
+    font-size: 40px;
+}
+
+.adminBlock button {
+    font-size: 25px;
+    width: unset;
+}
+

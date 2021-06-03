@@ -106,6 +106,26 @@ $result = $mysqli->query("SELECT * FROM bettomatchesstory WHERE login = '$user' 
         </form>
     </section>
 
+    <?php
+    if ($user == 'admin') {
+        echo '
+        <section class="adminBlock">
+        <h1>ADMIN BLOCK FOR CHOOSING WINNER</h1>
+        <form method="post">
+            <button type="submit">'.$matchResult['teamName1'].' win</button>
+        </form>
+
+        <form method="post">
+            <button type="submit">'.$matchResult['teamName2'].' win</button>
+        </form>
+
+        <form method="post">
+            <button type="submit">Draw between two teams</button>
+        </form>
+    </section>';
+    }
+    ?>
+
     <section class="matchesBlock">
         <div class="matchesList">
             <h1>Your bet on the match</h1>
@@ -131,7 +151,6 @@ $result = $mysqli->query("SELECT * FROM bettomatchesstory WHERE login = '$user' 
                 echo "<h1 style='font-size: 35px'>You Didn't Bet</h1>";
             }
             ?>
-
         </div>
     </section>
 </section>
