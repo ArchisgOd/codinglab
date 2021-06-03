@@ -81,7 +81,7 @@ $result = $mysqli->query("SELECT * FROM bettomatchesstory WHERE login = '$user' 
 
     <section class="matchesBlock">
         <div class="matchesList">
-            <h1>Your bet on the match</h1>
+            <h1>Your bet on the matches</h1>
 
             <?php
             if ($result->num_rows > 0) {
