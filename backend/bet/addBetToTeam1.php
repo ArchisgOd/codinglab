@@ -14,7 +14,7 @@ if (isset($_GET['id'])) {
 $resultUser = mysqli_query($mysqli, "SELECT * FROM  `users` where `login`='$user' ");
 $resultUser = mysqli_fetch_assoc($resultUser);
 
-if ($betTeam1 > $resultUser['balanc'] || $betTeam1 < '0') {
+if ($betTeam1 > $resultUser['balance'] || $betTeam1 < '0') {
     echo '<script> 
              alert("INSUFFICIENT FUNDS");
              window.location.href="/codinglab/index.php";
