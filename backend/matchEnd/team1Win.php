@@ -7,12 +7,20 @@ if (isset($_GET['id'])) {
     $matchResult = mysqli_fetch_assoc($matchResult);
 }
 
-$mysqli->query("UPDATE `matches` SET `matchEnd` = 1");
+$mysqli->query("UPDATE `matches` SET `matchEnd` = 1 WHERE ID = ".$matchResult['ID']." ");
 
 $resultUsers = $mysqli->query("SELECT * FROM `users`");
 if ($resultUsers->num_rows > 0) {
     while ($row = $resultUsers->fetch_assoc()) {
-        $mysqli->query("");
+        $mysqli->query("UPDATE `users` SET `balance` = `balance` + COALESCE((SELECT SUM(bettomatchesstory.paidMoney)
+        FROM users
+        INNER JOIN bettomatchesstory
+        ON users.login = bettomatchesstory.login
+        WHERE bettomatchesstory.matchID =' ".$matchResult['ID']." 'AND bettomatchesstory.team = '".$matchResult['teamName1']."' AND bettomatchesstory.login = '".$row['login']."'
+        GROUP BY users.login), 0) * (SELECT `teamCoefficient1` FROM `matches` WHERE `ID` = '".$matchResult['ID']."')
+        WHERE login = '".$row['login']."'
+        ");
     }
 }
-?>
+
+header('Location: /codinglab/index.php');

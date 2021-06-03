@@ -111,15 +111,15 @@ $result = $mysqli->query("SELECT * FROM bettomatchesstory WHERE login = '$user' 
         echo '
         <section class="adminBlock">
         <h1>ADMIN BLOCK FOR CHOOSING WINNER</h1>
-        <form method="post">
+        <form method="post" action="backend/matchEnd/team1Win.php?id='.$id.'">
             <button type="submit">'.$matchResult['teamName1'].' win</button>
         </form>
 
-        <form method="post">
+        <form method="post" action="backend/matchEnd/team2Win.php?id='.$id.'">
             <button type="submit">'.$matchResult['teamName2'].' win</button>
         </form>
 
-        <form method="post">
+        <form method="post" action="backend/matchEnd/drawInMatch.php?id='.$id.'">
             <button type="submit">Draw between two teams</button>
         </form>
     </section>';
