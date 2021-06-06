@@ -130,7 +130,11 @@ $result = $mysqli->query("SELECT * FROM bettomatchesstory WHERE login = '$user' 
         else {
             echo '<h1 style="text-align: center; font-size: 40px">The Match Is Over</h1>';
             echo '<br>';
+            echo '<br>';
             echo '<h1 style="text-align: center; font-size: 60px">'.$matchResult['winTeam'].' </h1>';
+            echo '<br>';
+            echo '<br>';
+            echo '<br>';
             echo '<hr>';
         }
     ?>
