@@ -8,6 +8,7 @@ if (isset($_GET['id'])) {
 }
 
 $mysqli->query("UPDATE `matches` SET `matchEnd` = 1 WHERE ID = " . $matchResult['ID'] . " ");
+$mysqli->query("UPDATE `matches` SET `winTeam` = '".$matchResult['teamName2']." Win' WHERE ID = ".$matchResult['ID']." ");
 
 $resultUsers = $mysqli->query("SELECT * FROM `users`");
 if ($resultUsers->num_rows > 0) {

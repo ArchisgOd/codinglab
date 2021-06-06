@@ -87,28 +87,29 @@ $result = $mysqli->query("SELECT * FROM bettomatchesstory WHERE login = '$user' 
         </table>
     </section>
 
-    <section class="summitBet">
-        <form method="post" action="backend/bet/addBetToTeam1.php?id=<?php echo $id; ?>">
-            <input type="text" placeholder="bet on winning <?php echo $matchResult['teamName1'] ?>" name="betTeam1"
+    <?php
+        if($matchResult['matchEnd'] == '0') {
+            echo '<section class="summitBet">
+        <form method="post" action="backend/bet/addBetToTeam1.php?id='.$id.'">
+            <input type="text" placeholder="bet on winning '.$matchResult['teamName1'].' " name="betTeam1"
                    id="betTeam1">
             <button type="submit">BET</button>
         </form>
 
-        <form method="post" action="backend/bet/addBetToTeam2.php?id=<?php echo $id; ?>">
-            <input type="text" placeholder="bet on winning <?php echo $matchResult['teamName2'] ?>" name="betTeam2"
+        <form method="post" action="backend/bet/addBetToTeam2.php?id='.$id.'">
+            <input type="text" placeholder="bet on winning '.$matchResult['teamName2'].' " name="betTeam2"
                    id="betTeam2">
             <button type="submit">BET</button>
         </form>
 
-        <form method="post" action="backend/bet/addBetToDraw.php?id=<?php echo $id; ?>">
+        <form method="post" action="backend/bet/addBetToDraw.php?id='.$id.'">
             <input type="text" placeholder="bet on draw" name="betDraw" id="betDraw">
             <button type="submit">BET</button>
         </form>
-    </section>
+    </section>';
 
-    <?php
-    if ($user == 'admin') {
-        echo '
+            if ($user == 'admin') {
+                echo '
         <section class="adminBlock">
         <h1>ADMIN BLOCK FOR CHOOSING WINNER</h1>
         <form method="post" action="backend/matchEnd/team1Win.php?id='.$id.'">
@@ -123,8 +124,17 @@ $result = $mysqli->query("SELECT * FROM bettomatchesstory WHERE login = '$user' 
             <button type="submit">Draw between two teams</button>
         </form>
     </section>';
-    }
+            }
+        }
+
+        else {
+            echo '<h1 style="text-align: center; font-size: 40px">The Match Is Over</h1>';
+            echo '<br>';
+            echo '<h1 style="text-align: center; font-size: 60px">'.$matchResult['winTeam'].' </h1>';
+            echo '<hr>';
+        }
     ?>
+
 
     <section class="matchesBlock">
         <div class="matchesList">
