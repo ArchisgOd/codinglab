@@ -30,46 +30,60 @@
         </nav>
     </section>
 
-    <section>
+    <section class="registrationBlock">
         <h1>Registration Page</h1>
 
         <form method="post" action="backend/authorization/registration.php">
-            <label>
-                <input type="text" placeholder="Login" name="login" id="login">
+            <label for="username">
+                <input type="text" placeholder="Username" name="login" id="login" minlength="3" maxlength="32" required autocomplete="off">
+                <ul class="inputRequirements">
+                    <li>Username should contain 3-32 characters</li>
+                    <li>Must contain only letters and numbers</li>
+                </ul>
             </label>
-            <p id="loginCheck">Incorrect login</p>
+
+            <label for="name">
+                <input type="text" placeholder="Name" name="name" id="name" minlength="1" maxlength="32" required autocomplete="off">
+                <ul class="inputRequirements">
+                    <li>Enter your real name</li>
+                </ul>
+            </label>
+
+            <label for="surname">
+                <input type="text" placeholder="Surname" name="surname" id="surname" minlength="1" maxlength="32" required autocomplete="off">
+                <ul class="inputRequirements">
+                    <li>Enter your real surname</li>
+                </ul>
+            </label>
+
+            <label for="email">
+                <input type="text" placeholder="E-mail" name="email" id="email" minlength="3" maxlength="32" required autocomplete="off">
+                <ul class="inputRequirements">
+                    <li>E-mail should have @ format. Example: mail@mail.com</li>
+                </ul>
+            </label>
 
             <label>
-                <input type="text" placeholder="Name" name="name" id="name">
+                <input type="text" placeholder="UIN" name="uin" id="uin" minlength="12" maxlength="12" required autocomplete="off">
+                <ul class="inputRequirements">
+                    <li>Uin should contain 12 numbers</li>
+                </ul>
             </label>
-            <p id="">Incorrect name</p>
 
             <label>
-                <input type="text" placeholder="Surname" name="surname" id="surname">
+                <input type="password" placeholder="Password" name="pass" id="pass" minlength="3" maxlength="32" required autocomplete="off">
+                <ul class="inputRequirements">
+                    <li>Password should contain 3-32 characters</li>
+                </ul>
             </label>
-            <p id="">Incorrect surname</p>
 
-            <label>
-                <input type="text" placeholder="E-mail" name="email" id="email">
-            </label>
-            <p id="">Incorrect e-mail</p>
-
-            <label>
-                <input type="text" placeholder="UIN" name="uin" id="uin">
-            </label>
-            <p id="">Incorrect uin</p>
-
-            <label>
-                <input type="password" placeholder="Password" name="pass" id="pass">
-            </label>
-            <p id="">Incorrect password</p>
-
-            <button class="loginButton" type="submit">Login</button>
+            <button class="loginButton" type="submit">Register</button>
         </form>
     </section>
 </section>
 
 <script src="js/jquery-3.5.1.js"></script>
+<script src="js/validatorRegistration.js"></script>
 <script src="js/script.js"></script>
 </body>
 </html>

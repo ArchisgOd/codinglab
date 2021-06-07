@@ -5,6 +5,12 @@ form {
     align-items: center;
 }
 
+.registrationBlock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 h1 {
     font-size: 30px;
     margin: 40px 0;
@@ -21,17 +27,42 @@ input {
 }
 
 button {
-    width: 30%;
     border: none;
     padding: 10px 15px;
     border-radius: 20px;
     background-color: #ED2839;
     color: white;
     margin: 10px 0;
+    width: 300px;
 }
 
-p {
-    color: red;
-    display: none;
-    margin: 0;
+label {
+    display: flex;
+    flex-direction: column;
+}
+
+ul {
+    margin: 5px 0;
+}
+
+li {
+    font-style: italic;
+    color: gray;
+    font-size: 15px;
+}
+
+.inputRequirements {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 1s;
+}
+
+input:not([type="submit"]):valid {
+    border-color: #5aa75a;
+}
+
+input:not([type="submit"]):hover + .inputRequirements,
+input:not([type="submit"]):active + .inputRequirements,
+input:not([type="submit"]):focus + .inputRequirements {
+    max-height: 1000px;
 }
