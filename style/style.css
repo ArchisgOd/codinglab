@@ -92,13 +92,13 @@ label {
 }
 
 #menu {
-    position: absolute;
+    position: fixed;
     background-color: rgba(0, 0, 0, 0.9);
     height: 100%;
-    width: 25%;
+    width: 400px;
     display: flex;
     flex-direction: column;
-    left: -25%;
+    left: -400px;
     transition: left 0.3s;
     z-index: 100;
 }
@@ -109,10 +109,18 @@ label {
     align-self: flex-end;
 }
 
+#menu form {
+    width: calc(100% + 40px);
+}
+
 .menuList {
     color: white;
     font-size: 25px;
     padding: 20px;
+    background: none;
+    border: none;
+    width: calc(100% - 40px);
+    text-align: left;
 }
 
 .menuList:hover {
@@ -227,5 +235,90 @@ th {
 th:nth-child(odd) {
     color: #ffffff;
     background-color: #1d1c1c;
+}
+
+@media (max-device-width: 1150px) {
+    .logo {
+        display: none;
+    }
+
+    .matchesBlock {
+        margin: 0 30px;
+    }
+}
+
+@media (max-device-width: 900px) {
+    .banner {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .bannerSide {
+        height: unset;
+        width: 70%;
+    }
+
+    .logoContent {
+        text-align: unset;
+    }
+
+    .rightSide {
+        display: none;
+    }
+}
+
+@media (max-device-width: 780px) {
+    h1 {
+        font-size: 40px !important;
+    }
+
+    table, td, th {
+        font-size: 15px !important;
+    }
+
+    .matchesBlock {
+        margin: 0;
+    }
+}
+
+@media (max-device-width: 580px) {
+    table, td, th {
+        padding: 5px;
+    }
+
+    .matchLink {
+        margin-bottom: 40px;
+    }
+
+    .bannerSide h1 {
+        margin-left: 30px;
+    }
+
+    .bannerSide p {
+        margin-left: 30px;
+    }
+
+    .category {
+        display: none;
+    }
+
+    .drawCoef {
+        display: none;
+    }
+}
+
+@media (max-device-width: 400px) {
+    #menu {
+        width: 100%;
+    }
+
+    body {
+        overflow-wrap: anywhere;
+    }
+
+    .bannerSide {
+        height: unset;
+        width: 95%;
+    }
 }
 

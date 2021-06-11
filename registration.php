@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Title</title>
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="style/login_style.css">
@@ -59,7 +60,7 @@
             <label for="email">
                 <input type="text" placeholder="E-mail" name="email" id="email" minlength="3" maxlength="32" required autocomplete="off">
                 <ul class="inputRequirements">
-                    <li>E-mail should have @ format. Example: mail@mail.com</li>
+                    <li>Example: mail@mail.com</li>
                 </ul>
             </label>
 

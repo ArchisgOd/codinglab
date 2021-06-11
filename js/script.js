@@ -10,7 +10,7 @@ $('#menuButton').click(function () {
 
 $('#exitIcon').click(function () {
     $('#menu').css({
-        'left': '-25%',
+        'left': '-400px',
     });
 
     $('.menuLine').css({

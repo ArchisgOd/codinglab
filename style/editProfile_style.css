@@ -1,6 +1,5 @@
 h1 {
     text-align: center;
-    width: 40%;
     font-size: 45px;
     margin: 90px 0 30px 0;
     -webkit-box-shadow: 0px 5px 11px -5px rgba(34, 60, 80, 0.2);
@@ -43,4 +42,15 @@ button, .fuckGoBack {
 button:hover, .fuckGoBack:hover {
     background-color: #d42868;
     cursor: pointer;
+}
+
+@media (max-device-width: 660px) {
+    form div {
+        display: flex;
+        flex-direction: column;
+    }
+
+    button {
+        margin-bottom: 40px;
+    }
 }

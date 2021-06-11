@@ -10,6 +10,7 @@ $result = $mysqli->query("SELECT * FROM bettomatchesstory WHERE login = '$user' 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Title</title>
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="style/user_style.css">
@@ -18,6 +19,15 @@ $result = $mysqli->query("SELECT * FROM bettomatchesstory WHERE login = '$user' 
 <section id="menu">
     <img src="https://img.icons8.com/ios-filled/50/ffffff/multiply.png" alt="exit" id="exitIcon">
     <a href="index.php" class="menuList">Home</a>
+    <form method="post" action="backend/authorization/logout.php">
+        <button type="submit" class="menuList">Logout</button>
+    </form>
+    <a href="addBalance.php" class="menuList">Top up balance +</a>
+    <?php
+    if ($user == 'admin') {
+        echo '<a href="addMatch.php" class="menuList">Add match</a>';
+    }
+    ?>
 </section>
 
 <section id="all">
@@ -70,6 +80,7 @@ $result = $mysqli->query("SELECT * FROM bettomatchesstory WHERE login = '$user' 
                 <br>
                 <span class="profileInfo"><?php echo $results['email']?></span>
             </p>
+
             <p><span style="font-weight: bold">Balance:</span>
                 <br>
                 <span class="profileInfo"><?php echo $results['balance']?> тг</span>

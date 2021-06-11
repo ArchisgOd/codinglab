@@ -1,7 +1,12 @@
 form {
     display: flex;
     flex-direction: column;
-    margin-left: 40px;
+    align-items: center;
+}
+
+.all {
+    display: flex;
+    flex-direction: column;
     align-items: center;
 }
 
@@ -61,8 +66,37 @@ input:not([type="submit"]):valid {
     border-color: #5aa75a;
 }
 
+input:not([type="submit"]):invalid {
+    border-color: #e50630;
+}
+
 input:not([type="submit"]):hover + .inputRequirements,
 input:not([type="submit"]):active + .inputRequirements,
 input:not([type="submit"]):focus + .inputRequirements {
     max-height: 1000px;
+}
+
+.valid {
+    color: #5aa75a;
+}
+
+.invalid {
+    color: red;
+}
+
+@media (max-device-width: 762px) {
+    input {
+        width: 300px;
+    }
+}
+
+@media (max-device-width: 362px) {
+    label {
+        margin: 0 10px;
+        width: 232px;
+    }
+
+    input, button {
+        width: 200px;
+    }
 }

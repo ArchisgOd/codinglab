@@ -1,23 +1,26 @@
 <?php
 $mysqli = mysqli_connect("localhost", "root", "", "codingLab");
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+    $matchResult = $mysqli->query("SELECT * FROM matches WHERE ID = '$id'");
+    $matchResult = mysqli_fetch_assoc($matchResult);
+}
+
+
 if (isset($_COOKIE['user'])) {
     $user = $_COOKIE['user'];
     $results = mysqli_query($mysqli, "SELECT * FROM  `users` where `login`='$user' ");
     $results = mysqli_fetch_assoc($results);
-    if (isset($_GET['id'])) {
-        $id = $_GET['id'];
-        $matchResult = $mysqli->query("SELECT * FROM matches WHERE ID = '$id'");
-        $matchResult = mysqli_fetch_assoc($matchResult);
-    }
-}
-$result = $mysqli->query("SELECT * FROM bettomatchesstory WHERE login = '$user' AND matchID = '$id' ORDER BY ID DESC");
+    $result = $mysqli->query("SELECT * FROM bettomatchesstory WHERE login = '$user' AND matchID = '$id' ORDER BY ID DESC");
 
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Title</title>
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="style/match_style.css">
@@ -139,16 +142,18 @@ $result = $mysqli->query("SELECT * FROM bettomatchesstory WHERE login = '$user' 
         }
     ?>
 
-
-    <section class="matchesBlock">
+    <?php
+    if (isset($_COOKIE['user'])) {
+        echo '
+        <section class="matchesBlock">
         <div class="matchesList">
             <h1>Your bet on the match</h1>
 
-            <?php
+           ';
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
                     echo '
-                    <table class="match">
+            <table class="match">
                     <thead>
                     <tr>
                         <th>Bet on</th>
@@ -164,9 +169,12 @@ $result = $mysqli->query("SELECT * FROM bettomatchesstory WHERE login = '$user' 
             } else {
                 echo "<h1 style='font-size: 35px'>You Didn't Bet</h1>";
             }
-            ?>
+            '
         </div>
     </section>
+        ';
+    }
+    ?>
 </section>
 <script src="js/jquery-3.5.1.js"></script>
 <script src="js/script.js"></script>

@@ -12,6 +12,7 @@ $result = $mysqli->query("SELECT * FROM matches ORDER BY ID DESC");
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Title</title>
     <link rel="stylesheet" href="style/style.css">
 </head>
@@ -19,6 +20,14 @@ $result = $mysqli->query("SELECT * FROM matches ORDER BY ID DESC");
 <section id="menu">
     <img src="https://img.icons8.com/ios-filled/50/ffffff/multiply.png" alt="exit" id="exitIcon">
     <a href="index.php" class="menuList">Home</a>
+    <?php
+    if (isset($_COOKIE['user'])) {
+        echo '<a href="user.php" class="menuList">Profile </a>';
+    } else {
+        echo '<a href="login.php" class="menuList">Login</a>';
+        echo '<a href="registration.php" class="menuList">Registration</a>';
+    }
+    ?>
 </section>
 
 <section id="all">
@@ -34,14 +43,6 @@ $result = $mysqli->query("SELECT * FROM matches ORDER BY ID DESC");
             </div>
 
             <div class="rightSide">
-                <form>
-                    <label>
-                        <img src="https://img.icons8.com/ios-filled/24/000000/search--v1.png" alt="searchIcon"
-                             class="searchIcon">
-                        <input type="search" class="search" placeholder="Search here">
-                    </label>
-                </form>
-
                 <?php
                 if (isset($_COOKIE['user'])) {
                     echo '<a href="user.php" style="margin: 0 30px">
@@ -88,18 +89,18 @@ $result = $mysqli->query("SELECT * FROM matches ORDER BY ID DESC");
                 <table class="match">
                     <thead>
                     <tr>
-                        <th rowspan="2"><img class="matchesCategoryImage" src="image/matchesCategoryImg/'.$row["category"].'.svg">
+                        <th rowspan="2" class="category"><img class="matchesCategoryImage" src="image/matchesCategoryImg/'.$row["category"].'.svg">
                         </th>
                         <th>team name 1</th>
                         <th>coefficient</th>
-                        <th>draw</th>
+                        <th class="drawCoef">draw</th>
                         <th>coefficient</th>
                         <th>team name 2</th>
                     </tr>
                     <tr>
                         <td>'.$row["teamName1"].'</td>
                         <td>'.$row["teamCoefficient1"].'</td>
-                        <td>'.$row["draw"].'</td>
+                        <td class="drawCoef">'.$row["draw"].'</td>
                         <td>'.$row["teamCoefficient2"].'</td>
                         <td>'.$row["teamName2"].'</td>
                     </tr>
