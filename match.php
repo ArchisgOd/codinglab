@@ -94,19 +94,19 @@ if (isset($_COOKIE['user'])) {
         if($matchResult['matchEnd'] == '0') {
             echo '<section class="summitBet">
         <form method="post" action="backend/bet/addBetToTeam1.php?id='.$id.'">
-            <input type="text" placeholder="bet on winning '.$matchResult['teamName1'].' " name="betTeam1"
+            <input type="number" min="1" max="'.$results['balance'].'" placeholder="bet on winning '.$matchResult['teamName1'].' " name="betTeam1"
                    id="betTeam1">
             <button type="submit">BET</button>
         </form>
 
         <form method="post" action="backend/bet/addBetToTeam2.php?id='.$id.'">
-            <input type="text" placeholder="bet on winning '.$matchResult['teamName2'].' " name="betTeam2"
+            <input type="number" min="1" max="'.$results['balance'].'" placeholder="bet on winning '.$matchResult['teamName2'].' " name="betTeam2"
                    id="betTeam2">
             <button type="submit">BET</button>
         </form>
 
         <form method="post" action="backend/bet/addBetToDraw.php?id='.$id.'">
-            <input type="text" placeholder="bet on draw" name="betDraw" id="betDraw">
+            <input type="number" min="1" max="'.$results['balance'].'" placeholder="bet on draw" name="betDraw" id="betDraw">
             <button type="submit">BET</button>
         </form>
     </section>';
