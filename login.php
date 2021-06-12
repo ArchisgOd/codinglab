@@ -34,6 +34,12 @@
     <section>
         <h1>Login Page</h1>
 
+        <?php
+        if (isset($_GET['id'])) {
+            echo "<h1 style='color: #d00a0a; margin: 10px 0'>Invalid username or password</h1>";
+        }
+        ?>
+
         <form method="post" action="backend/authorization/auth.php">
             <label>
                 <input type="text" placeholder="Login" name="login" id="login">

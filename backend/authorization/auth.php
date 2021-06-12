@@ -15,7 +15,7 @@ $user = $result-> fetch_assoc();
 
 if(mysqli_num_rows($data) == 0) {
     mysqli_close($dbc);
-    echo "Invalid username or password";
+    header('Location: /codinglab/login.php?id=1');
 } else {
     setcookie('user', $user['login'], time() + (60*60*24*30), '/');
 

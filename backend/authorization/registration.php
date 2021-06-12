@@ -38,5 +38,5 @@ if(mysqli_num_rows($data) == 0) {
     header('Location: /codinglab/index.php');
 } else {
     mysqli_close($dbc);
-    echo "This user already exists";
+    header('Location: /codinglab/registration.php?id=1');
 }

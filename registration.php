@@ -34,6 +34,12 @@
     <section class="registrationBlock">
         <h1>Registration Page</h1>
 
+        <?php
+        if (isset($_GET['id'])) {
+            echo "<h1 style='color: #d00a0a; margin: 10px 0'>This user already exists</h1>";
+        }
+        ?>
+
         <form method="post" action="backend/authorization/registration.php">
             <label for="username">
                 <input type="text" placeholder="Username" name="login" id="login" minlength="3" maxlength="32" required autocomplete="off">
@@ -77,7 +83,6 @@
                     <li>Password should contain 3-32 characters</li>
                 </ul>
             </label>
-
             <button class="loginButton" type="submit">Register</button>
         </form>
     </section>
