@@ -44,28 +44,28 @@
             </label>
 
             <label for="name">
-                <input type="text" placeholder="Name" name="name" id="name" minlength="1" maxlength="32" required autocomplete="off">
+                <input type="text" onkeypress="validateLet(event)" placeholder="Name" name="name" id="name" minlength="1" maxlength="32" required autocomplete="off">
                 <ul class="inputRequirements">
                     <li>Enter your real name</li>
                 </ul>
             </label>
 
             <label for="surname">
-                <input type="text" placeholder="Surname" name="surname" id="surname" minlength="1" maxlength="32" required autocomplete="off">
+                <input type="text" onkeypress="validateLet(event)" placeholder="Surname" name="surname" id="surname" minlength="1" maxlength="32" required autocomplete="off">
                 <ul class="inputRequirements">
                     <li>Enter your real surname</li>
                 </ul>
             </label>
 
             <label for="email">
-                <input type="text" placeholder="E-mail" name="email" id="email" minlength="3" maxlength="32" required autocomplete="off">
+                <input type="email" placeholder="E-mail" name="email" id="email" minlength="3" maxlength="32" required autocomplete="off">
                 <ul class="inputRequirements">
                     <li>Example: mail@mail.com</li>
                 </ul>
             </label>
 
             <label>
-                <input type="text" placeholder="UIN" name="uin" id="uin" minlength="12" maxlength="12" required autocomplete="off">
+                <input type="text" onkeypress="validate(event)" placeholder="UIN" name="uin" id="uin" minlength="12" maxlength="12" required autocomplete="off">
                 <ul class="inputRequirements">
                     <li>Uin should contain 12 numbers</li>
                 </ul>
@@ -86,5 +86,29 @@
 <script src="js/jquery-3.5.1.js"></script>
 <script src="js/validatorRegistration.js"></script>
 <script src="js/script.js"></script>
+<script type="text/javascript">
+    function validate(evt) {
+        var theEvent = evt || window.event;
+        var key = theEvent.keyCode || theEvent.which;
+        key = String.fromCharCode( key );
+        var regex = /[0-9]|\./;
+        if( !regex.test(key) ) {
+            theEvent.returnValue = false;
+            if(theEvent.preventDefault) theEvent.preventDefault();
+        }
+    }
+
+    function validateLet(evt) {
+        var theEvent = evt || window.event;
+        var key = theEvent.keyCode || theEvent.which;
+        key = String.fromCharCode( key );
+        var regex = /[a-zA-zа-яА-Я]|\./;
+        if( !regex.test(key) ) {
+            theEvent.returnValue = false;
+            if(theEvent.preventDefault) theEvent.preventDefault();
+        }
+    }
+
+</script>
 </body>
 </html>

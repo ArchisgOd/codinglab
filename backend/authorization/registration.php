@@ -1,4 +1,5 @@
 <?php
+$dbc = mysqli_connect('localhost', 'root', '', 'codingLab') OR DIE('<p class="">Ошибка подключения к базе данных </p>');
 
 $login = filter_var(trim($_POST['login']),
     FILTER_SANITIZE_STRING);
@@ -18,15 +19,24 @@ $uin = filter_var(trim($_POST['uin']),
 $pass = filter_var(trim($_POST['pass']),
     FILTER_SANITIZE_STRING);
 
-$mysql = new  mysqli('localhost', 'root', '','codingLab');
-$mysql -> query("INSERT INTO `users` (`login`, `name` , `surname` , `email`, `uin`, `pass`)
+
+$query = "SELECT * FROM `users` WHERE login = '$login'";
+$data = mysqli_query($dbc, $query);
+
+if(mysqli_num_rows($data) == 0) {
+    $mysql = new  mysqli('localhost', 'root', '','codingLab');
+    $mysql -> query("INSERT INTO `users` (`login`, `name` , `surname` , `email`, `uin`, `pass`)
     VALUES('$login', '$name' , '$surname' , '$email' , '$uin', '$pass')");
 
-$result = $mysql->query("SELECT * FROM `users` WHERE `login` = '$login' AND `pass` = '$pass'");
-$user = $result-> fetch_assoc();
+    $result = $mysql->query("SELECT * FROM `users` WHERE `login` = '$login' AND `pass` = '$pass'");
+    $user = $result-> fetch_assoc();
 
-setcookie('user', $user['login'], time() + (60*60*24*30), '/');
+    setcookie('user', $user['login'], time() + (60*60*24*30), '/');
 
-$mysql -> close();
+    $mysql -> close();
 
-header('Location: /codinglab/index.php');
+    header('Location: /codinglab/index.php');
+} else {
+    mysqli_close($dbc);
+    echo "This user already exists";
+}
